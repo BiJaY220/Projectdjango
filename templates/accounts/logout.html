@@ -1,0 +1,16 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<form action="." method="POST">
+    {% csrf_token %}
+    <p>this is a log out page </p>
+    <button type="logout" style="background-color:red;">Logout</button>
+
+
+
+{% endblock %}
+
+```
+
+

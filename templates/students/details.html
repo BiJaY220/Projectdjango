@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block content %} 
+
+
+{% if not created %}
+<form action="." method="POST">
+  {% csrf_token %}
+  {{form.as_p}}
+  <button style="margin-top: 30px" type="submit">Submit</button>
+  {% else %}
+  <p>the student has been created</p>
+  <a href="/students/{{object.id}}/">the detail of the student is </a>
+{% endif %}
+</form>
+{% endblock %} ``` ```
