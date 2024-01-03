@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.db.models.signals import pre_save, post_save
 from django.utils.text import slugify
 
+
 # Create your models here.
 class Student(models.Model):
     name = models.CharField(max_length=100)
@@ -14,6 +15,9 @@ class Student(models.Model):
 # blanks true or false     
 #save method
     def save(self,*args, **kwargs):
+        # if self.slug is None:
+        #     self.slug = slugify(self.name)
+
         super().save(*args, **kwargs)
 
 
@@ -28,6 +32,10 @@ def slugity_instance_title(instance, new_slug=None):
     if qs.exists():
         new_slug = "%s-%s" %(slug, qs.first().id)
         return slugity_instance_title(instance, new_slug=new_slug)
+    
+
+#         new_slug = "%s-%s" %(slug, qs.first().id)
+#         return slugity_instance_title(instance, new_slug=new_slug)
     
 
 
