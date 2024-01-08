@@ -5,7 +5,7 @@ from django.contrib import admin
 from .models import Student
 
 class StudentAdmin(admin.ModelAdmin):
-    list_display =['id', 'name','timestamp','publish', 'updated']
+    list_display =['id', 'name','timestamp','publish', 'updated','slug']
     search_fields = ['name','course']
     
 

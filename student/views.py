@@ -6,6 +6,10 @@ from .form import StudentForm
 from .models import Student
 
 def student_view(request, id =None):
+    """
+        the description of the function
+    
+    """
     student_object =None  
     if id is not None:
         student_object = Student.objects.get(id=id)

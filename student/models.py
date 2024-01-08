@@ -8,6 +8,7 @@ from django.utils.text import slugify
 class Student(models.Model):
     name = models.CharField(max_length=100)
     course = models.TextField()
+    slug = models.SlugField(unique=True, null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     publish = models.DateTimeField(auto_now_add=False,auto_now =True,null=True,blank=True)
@@ -55,7 +56,7 @@ pre_save.connect(stu_pre_save, sender=Student)
 
 
 def stu_post_save(sender, instance, created,*args, **kwargs):
-    #print('post_save')
+    print('post_save')
     #print(args, kwargs)
     if created:
         instance.slug = slugify(instance.name)
