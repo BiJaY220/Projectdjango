@@ -22,19 +22,23 @@ from student import views
 from student.views import detail_view
 from accounts.views import login_views, logout_views, register_views
 
+from cafe.views import recipe_create_view, recipe_detail_view, recipe_update_view
 
 urlpatterns = [
 
     path("", home_view, name="home"),
+    path("recipe/create/", views.recipe_create_view, name="recipe-create"),
+    path("recipe/<int:id>/", views.recipe_detail_view, name="recipe-detail"),
+    path("recipe/<int:id>/update/", views.recipe_update_view, name="recipe-update"),
+
    path("students/details/", views.detail_view),
    path("students/<int:id>/", views.student_view),#this is dynamic url 
     path("login/",login_views ),
     path("admin/", admin.site.urls),
      path("logout/",logout_views ),
      path("register/",register_views ),
+    ]
 
-
-] 
 """
 django only knowa of path admin and nothing else
 """
