@@ -1,14 +1,23 @@
-{% extends "base.html" %} {% block content %} 
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Recipes in the cafe </h1>
+
+<ul>
+  <h1> {{object.name}} {% if object.get_detail_url %}<small>
+    <a href="{{object.get_detail_url}}">view</a>
+  </small>{% endif %}</h1>
+
+  <p>{{object.description}}</p>
+  <p>{{object.direction}}</p>
 
 
-{% if not created %}
-<form action="." method="POST">
-  {% csrf_token %}
-  {{form.as_p}}
-  <button style="margin-top: 30px" type="submit">Submit</button>
-  {% else %}
-  <p>the details of the recipe</p>
-  <a href="/students/{{object.id}}/">the detail of the student is </a>
-{% endif %}
-</form>
-{% endblock %} ``` ```
+  {% for ingridents in object.recipeingridents_set.all%}
+  <h1> {{ ingridents.name }} </h1>
+  <p> {{ ingridents.as_imperial }} </p>
+  <p> {{ ingridents.direction }} </p>
+  {% endfor %}
+        </ul>
+
+{% endblock %}

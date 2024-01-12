@@ -2,6 +2,7 @@ from django.conf import settings
 import pint
 
 from django.db import models
+from django.urls import reverse
 
 """
 global ingridents
@@ -42,8 +43,7 @@ class RecipeIngridents(models.Model):
     #     #super().save(*args, **kwargs)
     #     super.save(*args, **kwargs)
     def get_absolute_url(self):
-        return self.recipe.get_absolute_url()
-    
+        return reverse("recipes:detail", kwargs={"id":self.id})
     
     
 
