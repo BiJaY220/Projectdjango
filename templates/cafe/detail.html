@@ -4,20 +4,21 @@
 
 <h1>Recipes in the cafe </h1>
 
-<ul>
-  <h1> {{object.name}} {% if object.get_detail_url %}<small>
-    <a href="{{object.get_detail_url}}">view</a>
+
+  <h1> {{object.name}} {% if object.get_edit_url %}<small>
+    <a href="{{object.get_edit_url}}">Edit</a>
   </small>{% endif %}</h1>
+  {% comment %} detail to edit {% endcomment %}
 
   <p>{{object.description}}</p>
   <p>{{object.direction}}</p>
 
 
-  {% for ingridents in object.recipeingridents_set.all%}
+  {% for ingridents in object.get_ingridents_children %}
   <h1> {{ ingridents.name }} </h1>
   <p> {{ ingridents.as_imperial }} </p>
   <p> {{ ingridents.direction }} </p>
   {% endfor %}
-        </ul>
+        
 
 {% endblock %}
