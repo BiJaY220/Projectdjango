@@ -3,7 +3,7 @@
 {% block content %} 
 
 {% if message %}
-<p>{% message %}</p>
+<p>{{ message }}</p>
 {% endif %}
 
 <div style = "margin-top: 30px">
@@ -11,10 +11,10 @@
   {% csrf_token %}
   {{form.as_p}}
   <button style="margin-top: 30px" type="submit">Submit</button>
-  {% else %}
+
   
 </form>
 </div>
 {% comment %} create update  {% endcomment %}
 
-{% endblock %} ``` ```
+{% endblock %} 
