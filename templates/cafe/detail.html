@@ -5,7 +5,7 @@
 <h1>Recipes in the cafe </h1>
 
 
-  <h1> {{object.name}} {% if object.get_edit_url %}<small>
+<h1> {{object.name}} {% if object.get_edit_url %}<small>
     <a href="{{object.get_edit_url}}">Edit</a>
   </small>{% endif %}</h1>
   {% comment %} detail to edit {% endcomment %}
@@ -16,7 +16,6 @@
 
   {% for ingridents in object.get_ingridents_children %}
   <h1> {{ ingridents.name }} </h1>
-  <p> {{ ingridents.as_imperial }} </p>
   <p> {{ ingridents.direction }} </p>
   {% endfor %}
         
